@@ -7,7 +7,9 @@ WORKDIR /app
 
 COPY . /app
 
-RUN pip3 --no-cache-dir install -r requirements.txt
+RUN apk update && apk add --no-cache gcc g++ python3-dev unixodbc-dev
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
 
 EXPOSE 5000
 
